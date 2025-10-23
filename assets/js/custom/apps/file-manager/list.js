@@ -11,12 +11,12 @@ var KTFileManagerList = function () {
         // Set date data order
         const tableRows = table.querySelectorAll('tbody tr');
 
-        tableRows.forEach(row => {
-            const dateRow = row.querySelectorAll('td');
-            const dateCol = dateRow[3]; // select date from 4th column in table
-            const realDate = moment(dateCol.innerHTML, "DD MMM YYYY, LT").format();
-            dateCol.setAttribute('data-order', realDate);
-        });
+        // tableRows.forEach(row => {
+        //     const dateRow = row.querySelectorAll('td');
+        //     const dateCol = dateRow[3]; // select date from 4th column in table
+        //     const realDate = moment(dateCol.innerHTML, "DD MMM YYYY, LT").format();
+        //     dateCol.setAttribute('data-order', realDate);
+        // });
 
         const foldersListOptions = {
             "info": false,
@@ -28,9 +28,7 @@ var KTFileManagerList = function () {
             'columns': [
                 { data: 'checkbox' },
                 { data: 'name' },
-                { data: 'size' },
-                { data: 'date' },
-                { data: 'action' },
+              
             ],
             'language': {
                 emptyTable: `<div class="d-flex flex-column flex-center">
@@ -261,7 +259,7 @@ var KTFileManagerList = function () {
         const counter = document.getElementById('kt_file_manager_items_counter');
 
         // Count total number of elements in datatable --- more info: https://datatables.net/reference/api/count()
-        counter.innerText = datatable.rows().count() + ' items';
+        counter.innerText = datatable.rows().count() + ' corrispondenze per: ';
     }
 
     // Public methods
